@@ -2,17 +2,16 @@
 
 
 mini-Pet Project - CRUD приложение библиотека
-URL : ${скоро будет}
 
  
 Технологии, которые я использовал:
 1. Spring
 2. Spring MVC
-Spring Validator
-JDBC API и JdbcTemplate
-PostgresQL
-Thymeleaf
-Html, Css
+3. Spring Validator
+4. JDBC API и JdbcTemplate
+5. PostgresQL
+6. Thymeleaf
+7. Html, Css
 
 
 Функционал :
