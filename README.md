@@ -6,13 +6,13 @@ URL : ${скоро будет}
 
  
 Технологии, которые я использовал:
-•Spring
-•Spring MVC
-•Spring Validator
-•JDBC API и JdbcTemplate
-•PostgresQL
-•Thymeleaf
-•Html, Css
+Spring
+Spring MVC
+Spring Validator
+JDBC API и JdbcTemplate
+PostgresQL
+Thymeleaf
+Html, Css
 
 
 Функционал :
