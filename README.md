@@ -6,8 +6,8 @@ URL : ${скоро будет}
 
  
 Технологии, которые я использовал:
-Spring
-Spring MVC
+1. Spring
+2. Spring MVC
 Spring Validator
 JDBC API и JdbcTemplate
 PostgresQL
