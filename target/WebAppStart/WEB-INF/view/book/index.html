@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #dddddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button-container a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            color: #333333;
+            padding: 8px 20px;
+            background-color: #818181;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button-container a:hover {
+            background-color: #525252;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:each="books : ${book}">
+        <tr>
+            <td th:text="${books.getId()}"></td>
+            <td th:text="${books.getBookName()}"></td>
+            <td th:text="${books.getAuthor()}"></td>
+            <td th:text="${books.getBookYear()}"></td>
+            <td><a href="/books/{id}" th:href="@{/books/{id}(id=${books.getId()})}">Details</a></td>
+        </tr>
+    </div>
+    </tbody>
+</table>
+<div class="button-container">
+    <a class="create-book" href="/books/new">Create new Book</a>
+    <a href="http://localhost:8080/people">All People</a>
+    <a href="/">Главная</a>
+</div>
+</body>
+</html>

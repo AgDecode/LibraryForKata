@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Book</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        p {
+            color: #333333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .btn-group {
+            margin-bottom: 20px;
+            margin-top: 20px; /* Отступ вверху кнопок */
+        }
+
+        .btn-group form {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #666666;
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            border-radius: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555555;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 18px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<p th:text="${book.getBookName() + ', ' + book.getAuthor() + ', ' + book.getBookYear()}">VALUE</p>
+
+<div th:if="${owner}" >
+    <p><span> Book now in : </span><span th:text="${owner.getFullName()}"> Person Name </span></p>
+    <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
+        <input type="submit" value="Вернуть книгу"/>
+    </form>
+</div>
+
+<div th:if="${people}">
+    <p>This book is free</p>
+    <form th:method="PATCH" th:action="@{/books/{id}/assign(id=${book.getId()})}">
+        <label for="person">Choose a person</label>
+        <select th:object="${person}" th:field="*{id}" id="person">
+            <option th:each="person : ${people}" th:value="${person.getId()}" th:text="${person.getFullName()}"></option>
+        </select>
+        <input type="submit" value="Assign book"/>
+    </form>
+</div>
+
+<div class="btn-group">
+    <form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getId()})}">
+        <input type="submit" value="Редактировать"/>
+    </form>
+
+    <form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
+        <input type="submit" value="Удалить"/>
+    </form>
+
+    <form th:method="GET" th:action="@{/books}">
+        <input type="submit" value="Назад"/>
+    </form>
+</div>
+
+</body>
+</html>
