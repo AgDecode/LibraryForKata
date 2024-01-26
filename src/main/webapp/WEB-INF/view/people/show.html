@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show People</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.27);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button-container a, .button-container form {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .button-container form input[type="submit"],
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #383838;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container form input[type="submit"]:hover,
+        .button-container button:hover {
+            background-color: #151515;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p th:text="${person.getYearOfBirthday() + ', ' + person.getFullName()}">VALUE</p>
+    <div th:if="${books.isEmpty()}">
+        <p>People don't have a book</p>
+        <hr/>
+    </div>
+
+    <div th:if="${!books.isEmpty()}">
+        <hr/>
+        <b>Books:</b>
+        <br/>
+        <table th:each="book : ${books}">
+            <a th:text="${book.getBookName()} + ', ' + ${book.getBookYear()} + ', ' + ${book.getAuthor()}"> user </a>
+        </table>
+        <hr/>
+    </div>
+
+    <div class="button-container">
+        <a th:href="@{/people/{id}/edit(id=${person.getId()})}">
+            <button>Edit</button>
+        </a>
+        <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+            <input type="submit" value="Delete"/>
+        </form>
+        <a th:href="@{/people}">
+            <button style="background-color: #ccc; color: #333;">Back</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>
