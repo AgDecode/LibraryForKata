@@ -3,58 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Show Book</title>
-    <style>
-        body {
-            background-color: #f2f2f2;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-
-        p {
-            color: #333333;
-            font-size: 24px;
-            margin-bottom: 20px;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-
-        .btn-group {
-            margin-bottom: 20px;
-            margin-top: 20px; /* Отступ вверху кнопок */
-        }
-
-        .btn-group form {
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        input[type="submit"] {
-            background-color: #666666;
-            color: #ffffff;
-            border: none;
-            padding: 12px 30px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-            border-radius: 10px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #555555;
-        }
-
-        select {
-            padding: 8px;
-            font-size: 18px;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="show.css">
 </head>
 <body>
 <p th:text="${book.getBookName() + ', ' + book.getAuthor() + ', ' + book.getBookYear()}">VALUE</p>
