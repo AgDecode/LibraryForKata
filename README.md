@@ -1,4 +1,4 @@
-# LibreryForKata
+# LibraryForKata
 
 
 mini-Pet Project - CRUD приложение библиотека
