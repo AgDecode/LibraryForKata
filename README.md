@@ -9,7 +9,7 @@ mini-Pet Project - CRUD приложение библиотека
 2. Spring MVC
 3. Spring Validator
 4. JDBC API и JdbcTemplate
-5. PostgresQL
+5. PostgresQL (Зашита от SQL иньекций ✅)
 6. Thymeleaf
 7. Html, Css
 
